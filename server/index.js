@@ -18,11 +18,16 @@ app.listen(port, () => {
 
 
 
+
 //database connect
 dbConnect();
 
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
+
+app.get("/", (req, res) => {
+  res.send("Hello from Picture Share API");
+})
 
 app.use("/posts", postRoutes);
